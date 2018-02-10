@@ -7,9 +7,19 @@ namespace ObservedHolidays.Tests
     public class UnitTest1
     {
         [TestMethod]
+        public void ObservedHoliday_02092018()
+        {
+            Assert.IsTrue(new DateTime(2018, 2, 9).ObservedHoliday() == Holiday.None);
+        }
+        [TestMethod]
         public void ObservedHoliday_01012018()
         {
             Assert.IsTrue(new DateTime(2018, 1, 1).ObservedHoliday() == Holiday.NewYearsDay);
+        }
+        [TestMethod]
+        public void ObservedHoliday_01012011()
+        {
+            Assert.IsTrue(new DateTime(2011, 1, 1).ObservedHoliday() == Holiday.None);
         }
         [TestMethod]
         public void ObservedHoliday_12312010()
@@ -47,6 +57,12 @@ namespace ObservedHolidays.Tests
         public void ObservedHoliday_05282018()
         {
             Assert.IsTrue(new DateTime(2018, 5, 28).ObservedHoliday() == Holiday.MemorialDay);
+        }
+
+        [TestMethod]
+        public void ObservedHoliday_01212019()
+        {
+            Assert.IsTrue(new DateTime(2019, 1, 21).ObservedHoliday() == Holiday.MartinLutherKingDay);
         }
 
         [TestMethod]

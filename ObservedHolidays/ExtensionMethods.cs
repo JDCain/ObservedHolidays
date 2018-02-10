@@ -16,6 +16,7 @@ namespace ObservedHolidays
             Variable = new List<VariableHoliday>
             {
                 new VariableHoliday { Holiday = Holiday.ThanksgivingDay, DayOfWeek = DayOfWeek.Thursday, Month = 11, Position = 3 },
+                new VariableHoliday { Holiday = Holiday.MartinLutherKingDay, DayOfWeek = DayOfWeek.Monday, Month = 1, Position = 2 },
                 new VariableHoliday { Holiday = Holiday.MemorialDay, DayOfWeek = DayOfWeek.Monday, Month = 5, Reverse = true, Position = 0 }
             }
         };
