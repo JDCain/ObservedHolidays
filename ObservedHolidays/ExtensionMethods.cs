@@ -12,7 +12,7 @@ namespace ObservedHolidays
 
     public static class ExtensionMethods
     {
-        private static List<StaticHolidayItem> _staticHolidays => new List<StaticHolidayItem>()
+        private static IEnumerable<StaticHolidayItem> _staticHolidays => new List<StaticHolidayItem>()
         {
             new StaticHolidayItem { Holiday = Holiday.NewYearsDay, Month = 1, Day = 1 },
             new StaticHolidayItem { Holiday = Holiday.IndpendenceDay, Month = 7, Day = 4 }

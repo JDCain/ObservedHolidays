@@ -31,6 +31,11 @@ namespace ObservedHolidays.Tests
         {
             Assert.IsTrue(new DateTime(2015, 7, 3).ObservedHoliday() == Holiday.IndpendenceDay);
         }
+        [TestMethod]
+        public void ObservedHoliday_07052010()
+        {
+            Assert.IsTrue(new DateTime(2010, 7, 5).ObservedHoliday() == Holiday.IndpendenceDay);
+        }
 
         [TestMethod]
         public void IsWeekendTest()
