@@ -4,15 +4,15 @@ using System.Reflection;
 
 namespace ObservedHolidays
 {
-    public enum Holiday
-    {
-        None,
-        NewYearsDay,
-        MartinLutherKingDay,
-        IndpendenceDay,
-        ThanksgivingDay,
-        MemorialDay
-    }
+    //public enum Holiday
+    //{
+    //    None,
+    //    NewYearsDay,
+    //    MartinLutherKingDay,
+    //    IndpendenceDay,
+    //    ThanksgivingDay,
+    //    MemorialDay
+    //}
 
 //    public class Holiday : Enumeration
 //    {

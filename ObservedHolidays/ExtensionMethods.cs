@@ -10,25 +10,26 @@ namespace ObservedHolidays
         {
             Static = new List<StaticHoliday>
             {
-                new StaticHoliday { Holiday = Holiday.NewYearsDay, Month = 1, Day = 1 },
-                new StaticHoliday { Holiday = Holiday.IndpendenceDay, Month = 7, Day = 4 }
+                new StaticHoliday { Holiday = "NewYearsDay", Month = 1, Day = 1 },
+                new StaticHoliday { Holiday = "IndpendenceDay", Month = 7, Day = 4 }
             },
             Variable = new List<VariableHoliday>
             {
-                new VariableHoliday { Holiday = Holiday.ThanksgivingDay, DayOfWeek = DayOfWeek.Thursday, Month = 11, Position = 3 },
-                new VariableHoliday { Holiday = Holiday.MartinLutherKingDay, DayOfWeek = DayOfWeek.Monday, Month = 1, Position = 2 },
-                new VariableHoliday { Holiday = Holiday.MemorialDay, DayOfWeek = DayOfWeek.Monday, Month = 5, Reverse = true, Position = 0 }
+                new VariableHoliday { Holiday = "ThanksgivingDay", DayOfWeek = DayOfWeek.Thursday, Month = 11, Position = 3 },
+                new VariableHoliday { Holiday = "MartinLutherKingDay", DayOfWeek = DayOfWeek.Monday, Month = 1, Position = 2 },
+                new VariableHoliday { Holiday = "MemorialDay", DayOfWeek = DayOfWeek.Monday, Month = 5, Reverse = true, Position = 0 }
             }
         };
 
         
-        public static Holiday ObservedHoliday(this DateTime date, HolidayData holidayData = null)
+        
+        public static IHoliday ObservedHoliday(this DateTime date, HolidayData holidayData = null)
         {
             if (holidayData == null)
             {
                 holidayData = _defaultHolidays;
             }
-            var result = Holiday.None;
+            IHoliday result = null;
 
             if (!date.IsWeekend())
             {
@@ -39,11 +40,11 @@ namespace ObservedHolidays
                         || (date.DayOfWeek == DayOfWeek.Monday && date.AddDays(-1) == holidayDateTime )
                         || (date.DayOfWeek == DayOfWeek.Friday && date.AddDays(1) == holidayDateTime))
                     {
-                        result = staticHolidayItem.Holiday;
+                        result = staticHolidayItem;
                         break;
                     }
                 }
-                if (result == Holiday.None)
+                if (result == null)
                 {
                     foreach (var variableHoliday in holidayData.Variable)
                     {
@@ -58,7 +59,7 @@ namespace ObservedHolidays
                             var holiday = new DateTime(date.Year, variableHoliday.Month, day);
                         if (holiday == date)
                         {
-                            result = variableHoliday.Holiday;
+                            result = variableHoliday;
                             break;
                         }
                     }
