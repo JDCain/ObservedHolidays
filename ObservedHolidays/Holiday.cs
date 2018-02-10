@@ -6,5 +6,7 @@
         NewYearsDay,
         MartinLutherKingDay,
         IndpendenceDay,
+        ThanksgivingDay,
+        MemorialDay
     }
 }

@@ -38,16 +38,22 @@ namespace ObservedHolidays.Tests
         }
 
         [TestMethod]
+        public void ObservedHoliday_11222018()
+        {
+            Assert.IsTrue(new DateTime(2018, 11, 22).ObservedHoliday() == Holiday.ThanksgivingDay);
+        }
+
+        [TestMethod]
+        public void ObservedHoliday_05282018()
+        {
+            Assert.IsTrue(new DateTime(2018, 5, 28).ObservedHoliday() == Holiday.MemorialDay);
+        }
+
+        [TestMethod]
         public void IsWeekendTest()
         {
             Assert.IsTrue(new DateTime(2018, 2, 10).IsWeekend());
             Assert.IsTrue(new DateTime(2018, 2, 11).IsWeekend());
-        }
-        [TestMethod]
-        public void ShiftForObservedTest()
-        {
-            Assert.IsTrue(new DateTime(2018, 2, 10).ShiftForObserved().DayOfWeek == DayOfWeek.Friday);
-            Assert.IsTrue(new DateTime(2018, 2, 11).ShiftForObserved().DayOfWeek == DayOfWeek.Monday);
         }
         
     }
