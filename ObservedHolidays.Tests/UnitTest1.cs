@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ObservedHolidays.Tests
@@ -63,6 +64,23 @@ namespace ObservedHolidays.Tests
         public void ObservedHoliday_01212019()
         {
             Assert.IsTrue(new DateTime(2019, 1, 21).ObservedHoliday() == Holiday.MartinLutherKingDay);
+        }
+
+        [TestMethod]
+        public void OverrideTest()
+        {
+            var newHolidays = new HolidayData()
+            {
+                Static = new List<StaticHoliday>
+                {
+                    new StaticHoliday { Holiday = Holiday.IndpendenceDay, Month = 9, Day = 15 }
+                },
+                Variable = new List<VariableHoliday>
+                {
+                    new VariableHoliday { Holiday = Holiday.ThanksgivingDay, DayOfWeek = DayOfWeek.Thursday, Month = 11, Position = 3 },
+                }
+            };
+            Assert.IsTrue(new DateTime(2015, 9, 15).ObservedHoliday(newHolidays) == Holiday.IndpendenceDay);
         }
 
         [TestMethod]
