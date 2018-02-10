@@ -4,6 +4,7 @@
     {
         None,
         NewYearsDay,
-        MartinLutherKingDay
+        MartinLutherKingDay,
+        IndpendenceDay,
     }
 }
